@@ -1,0 +1,5 @@
+---
+release_summary: Created a role to set up an Ansible user on Proxmox VE hosts.
+add object.role:
+  - name: pve_set_up_ansible_user
+    description: Sets up a dedicated Ansible user on Proxmox VE hosts with sudo privileges for pct and SSH key authentication.
