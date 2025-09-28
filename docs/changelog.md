@@ -1,5 +1,13 @@
 # Panzer1119 Proxmox Collection Release Notes
 
+<a id="v0-3-1"></a>
+## v0\.3\.1
+
+<a id="bugfixes"></a>
+### Bugfixes
+
+* pve\_set\_up\_ansible\_user \- Fixed an issue where the variable <code>ansible\_user</code> was used\, despite it being a reserved Ansible variable\. This has been replaced with <code>proxmox\_user</code> to avoid conflicts\.
+
 <a id="v0-3-0"></a>
 ## v0\.3\.0
 

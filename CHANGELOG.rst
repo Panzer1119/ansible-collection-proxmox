@@ -4,6 +4,14 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.3.1
+======
+
+Bugfixes
+--------
+
+- pve_set_up_ansible_user - Fixed an issue where the variable ``ansible_user`` was used, despite it being a reserved Ansible variable. This has been replaced with ``proxmox_user`` to avoid conflicts.
+
 v0.3.0
 ======
 
