@@ -4,6 +4,14 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.3.2
+======
+
+Bugfixes
+--------
+
+- pve_set_up_ansible_user - Fixed an indentation error in the sudoers configuration task that prevented the looping.
+
 v0.3.1
 ======
 
