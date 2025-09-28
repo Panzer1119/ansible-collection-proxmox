@@ -1,0 +1,81 @@
+---
+- name: "Add Thermal State Endpoint to Nodes.pm"
+  replace:
+    path: "/usr/share/perl5/PVE/API2/Nodes.pm"
+    regexp: '(\s+PVE::pvecfg::version_text\(\);)(\n|.)*?\n\n(\s*my \$dinfo = df\(''/'', 1\);     # output is bytes)\n'
+    replace: |
+      \1
+      
+      \t$res->{thermalstate} = `sensors -j`;
+      
+      \3
+    backup: true
+
+- name: "Set the PVE Node Status View Height to 340"
+  replace:
+    path: "/usr/share/pve-manager/js/pvemanagerlib.js"
+    regexp: 'Ext\.define\(.PVE\.node\.StatusView., \{\n(\s*)extend: .Proxmox\.panel\.StatusView.,\n(\s*)alias: .widget\.pveNodeStatus.,\n(\s*)\n(\s*)height: \d+,'
+    replace: 'Ext.define(''PVE.node.StatusView'', {\n\1extend: ''Proxmox.panel.StatusView'',\n\2alias: ''widget.pveNodeStatus'',\n\3\n\4height: 350,'
+    backup: true
+
+- name: "Add the Thermal State to the Summary"
+  replace:
+    path: "/usr/share/pve-manager/js/pvemanagerlib.js"
+    regexp: '\{\n\s*itemId:\s*''version'',\n\s*colspan:\s*2,\n\s*printBar:\s*false,\n\s*title:\s*gettext\(''Manager\s*Version''\),\n\s*textField:\s*''pveversion'',\n\s*value:\s*'''',\n\s*\},(\n.*?)+\],\n\s*\n\s*updateTitle: function\(\) \{\n'
+    replace: |
+      {
+      \t    itemId: 'version',
+      \t    colspan: 2,
+      \t    printBar: false,
+      \t    title: gettext('Manager Version'),
+      \t    textField: 'pveversion',
+      \t    value: '',
+      \t},
+      \t{
+      \t    itemId: 'thermal',
+      \t    colspan: 2,
+      \t    printBar: false,
+      \t    title: gettext('CPU Temperature'),
+      \t    textField: 'thermalstate',
+      \t    renderer: function(value) {
+      \t         if (!value) {
+      \t             return "N/A";
+      \t         }
+      \t         const objValue = JSON.parse(value);
+      \t         const results = [];
+      \t         for (const key in objValue) {
+      \t             if (!key.startsWith("coretemp-isa-")) {
+      \t                 continue;
+      \t             }
+      \t             //const id = parseInt(key.replace("coretemp-isa-", ""));
+      \t             const coretempIsa = objValue[key];
+      \t             if (!coretempIsa) {
+      \t                 continue;
+      \t             }
+      \t             for (const key2 in coretempIsa) {
+      \t                 if (!key2.startsWith("Package id ")) {
+      \t                     continue;
+      \t                 }
+      \t                 const packageId = key2.replace("Package id ", "");
+      \t                 const packageTemps = coretempIsa[key2];
+      \t                 if (!packageTemps) {
+      \t                     continue;
+      \t                 }
+      \t                 const temp1Input = packageTemps["temp1_input"];
+      \t                 if (!temp1Input) {
+      \t                     continue;
+      \t                 }
+      \t                 results.push(`Package ${packageId}: ${temp1Input} °C`);
+      \t             }
+      \t         }
+      \t         if (!results || results.length === 0) {
+      \t             return "N/A";
+      \t         }
+      \t         return results.join(", ");
+      \t    }
+      \t},
+          ],
+      
+          updateTitle: function() {
+    backup: true
+  notify: "Restart PVE Proxy"

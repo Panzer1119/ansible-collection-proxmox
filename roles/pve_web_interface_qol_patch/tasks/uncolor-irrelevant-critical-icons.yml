@@ -1,0 +1,49 @@
+---
+- name: "Add offline_status to nodes in pvemanagerlib.js"
+  replace:
+    path: "/usr/share/pve-manager/js/pvemanagerlib.js"
+    regexp: 'let nodes = {\n(.*?)online: 0,\n(.*?)offline: 0,\n(.*?)};\n'
+    replace: |
+      let nodes = {
+      \1online: 0,
+      \2offline: 0,
+      \2offline_status: "",
+      \3};
+    backup: true
+
+- name: "Add if to determine offline_status to pvemanagerlib.js"
+  replace:
+    path: "/usr/share/pve-manager/js/pvemanagerlib.js"
+    regexp: 'if \(numNodes !== nodes\.online \+ nodes\.offline\) {\n(.*?)nodes\.offline = numNodes - nodes\.online;\n(.*?)}\n\n(.*?)me\.getComponent\(''clusterstatus''\)\.updateHealth\(cluster\);\n(.*?)me\.getComponent\(''nodestatus''\)\.update\(nodes\);\n'
+    replace: |
+      if (numNodes !== nodes.online + nodes.offline) {
+      \1nodes.offline = numNodes - nodes.online;
+      \2}
+      
+      \2if (nodes.offline > 0) {
+      \1nodes.offline_status = "critical";
+      \2}
+      
+      \3me.getComponent('clusterstatus').updateHealth(cluster);
+      \4me.getComponent('nodestatus').update(nodes);
+    backup: true
+
+- name: "Add offline_status to data in pvemanagerlib.js"
+  replace:
+    path: "/usr/share/pve-manager/js/pvemanagerlib.js"
+    regexp: 'data: {\n(.*?)online: 0,\n(.*?)offline: 0,\n(.*?)},\n'
+    replace: |
+      data: {
+      \1online: 0,
+      \2offline: 0,
+      \2offline_status: "",
+      \3},
+    backup: true
+
+- name: "Replace a line in pvemanagerlib.js"
+  replace:
+    path: "/usr/share/pve-manager/js/pvemanagerlib.js"
+    regexp: '''<i class="critical fa fa-fw fa-times">&nbsp;</i>'','
+    replace: '''<i class="{offline_status} fa fa-fw fa-times">&nbsp;</i>'','
+    backup: true
+  notify: "Restart PVE Proxy"

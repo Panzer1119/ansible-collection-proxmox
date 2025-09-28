@@ -1,0 +1,8 @@
+---
+- name: "Replace a line in proxmoxlib.js"
+  replace:
+    path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
+    regexp: 'fmt\(gettext\(''Non production-ready repository enabled!''\), ''exclamation-circle.*?''\);'
+    replace: "fmt(gettext('Non production-ready repository enabled!'), 'exclamation-circle');"
+    backup: true
+  notify: "Restart PVE Proxy"

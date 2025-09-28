@@ -1,7 +1,30 @@
 ---
-# tasks file for panzer1119.proxmox.pve_web_interface_qol_patch
+- name: "Disable the No-Subscription-Warning"
+  include_tasks:
+    file: "disable-no-subscription-warning.yml"
+  when: "disable_no_subscription_warning"
 
-# task example for debugging a value
-- name: Debug the value of my_variable
-  ansible.builtin.debug:
-    msg: "The value of my_variable is {{ my_variable }}"
+- name: "Flatten the Snapshot Tree"
+  include_tasks:
+    file: "flatten-snapshot-tree.yml"
+  when: "flatten_snapshot_tree"
+
+- name: "Add CPU Temperature to Summary"
+  include_tasks:
+    file: "add-cpu-temperature-to-summary.yml"
+  when: "add_cpu_temperature_to_summary"
+
+- name: "Uncolor Irrelevant Critical Icons"
+  include_tasks:
+    file: "uncolor-irrelevant-critical-icons.yml"
+  when: "uncolor_irrelevant_critical_icons"
+
+- name: "Uncolor No Subscription Icon"
+  include_tasks:
+    file: "uncolor-no-subscription-icon.yml"
+  when: "uncolor_no_subscription_icon"
+
+- name: "Uncolor Non-Production-Ready Repository Icon on Node Summary"
+  include_tasks:
+    file: "uncolor-non-production-ready-repository-icon-on-node-summary.yml"
+  when: "uncolor_non_production_ready_repository_icon_on_node_summary"
