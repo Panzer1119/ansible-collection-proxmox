@@ -1,0 +1,5 @@
+---
+release_summary: Migrated the role pbs_web_interface_qol_patch from its own repository to this collection.
+add object.role:
+  - name: pbs_web_interface_qol_patch
+    description: Applies some quality of life improvement patches to the web interface of Proxmox Backup Server
