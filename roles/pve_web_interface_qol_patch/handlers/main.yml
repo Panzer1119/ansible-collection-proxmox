@@ -1,2 +1,5 @@
 ---
-# handlers file for panzer1119.proxmox.pve_web_interface_qol_patch
+- name: "Restart PVE Proxy"
+  service:
+    name: "pveproxy"
+    state: "restarted"
