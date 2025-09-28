@@ -19,10 +19,8 @@
   community.general.sudoers:
     name: "pct-ids"
     user: "{{ proxmox_user }}"
-    commands:
-      - "/usr/sbin/pct exec {{ item }} *"
+    commands: "{{ allowed_lxc_ids | map('regex_replace', '^(.*)$', '/usr/sbin/pct exec \\1 *') | list }}"
     nopassword: true
     state: "{{ 'present' if allowed_lxc_ids | length > 0 else 'absent' }}"
     validation: "required"
-  loop: "{{ allowed_lxc_ids }}"
 ...
