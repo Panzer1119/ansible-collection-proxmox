@@ -1,9 +1,17 @@
 # Panzer1119 Proxmox Collection Release Notes
 
+<a id="v0-3-3"></a>
+## v0\.3\.3
+
+<a id="bugfixes"></a>
+### Bugfixes
+
+* pve\_set\_up\_ansible\_user \- Switch to mapping the list of allowed lxc ids to commands instead of looping over it\. Because the loop executes the task multiple times\, it would overwrite the sudoers file multiple times\, resulting in only the last entry being present\.
+
 <a id="v0-3-2"></a>
 ## v0\.3\.2
 
-<a id="bugfixes"></a>
+<a id="bugfixes-1"></a>
 ### Bugfixes
 
 * pve\_set\_up\_ansible\_user \- Fixed an indentation error in the sudoers configuration task that prevented the looping\.
@@ -11,7 +19,7 @@
 <a id="v0-3-1"></a>
 ## v0\.3\.1
 
-<a id="bugfixes-1"></a>
+<a id="bugfixes-2"></a>
 ### Bugfixes
 
 * pve\_set\_up\_ansible\_user \- Fixed an issue where the variable <code>ansible\_user</code> was used\, despite it being a reserved Ansible variable\. This has been replaced with <code>proxmox\_user</code> to avoid conflicts\.

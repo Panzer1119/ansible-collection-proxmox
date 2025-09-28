@@ -4,6 +4,14 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.3.3
+======
+
+Bugfixes
+--------
+
+- pve_set_up_ansible_user - Switch to mapping the list of allowed lxc ids to commands instead of looping over it. Because the loop executes the task multiple times, it would overwrite the sudoers file multiple times, resulting in only the last entry being present.
+
 v0.3.2
 ======
 
