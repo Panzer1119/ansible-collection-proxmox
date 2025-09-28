@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Paul Hagedorn <panzer1119@gmail.com>
+  description: Applies some quality of life improvement patches to the web interface of Proxmox Backup Server
+  license: Apache-2.0
+  min_ansible_version: "2.14"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - web
+    - proxmox
+    - qol
+...

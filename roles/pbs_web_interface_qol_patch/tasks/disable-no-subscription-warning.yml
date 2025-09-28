@@ -1,0 +1,9 @@
+---
+- name: "Replace a line in proxmoxlib.js"
+  replace:
+    path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
+    regexp: '\.data\.status\.toLowerCase\(\) !== .active.\) \{'
+    replace: ".data.status.toLowerCase() !== 'active' && false) {"
+    backup: true
+  notify: "Restart PBS Proxy"
+...

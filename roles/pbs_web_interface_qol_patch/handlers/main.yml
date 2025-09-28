@@ -1,0 +1,6 @@
+---
+- name: "Restart PBS Proxy"
+  service:
+    name: "proxmox-backup-proxy"
+    state: "restarted"
+...

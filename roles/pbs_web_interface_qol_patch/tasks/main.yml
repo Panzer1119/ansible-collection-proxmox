@@ -1,0 +1,21 @@
+---
+- name: "Disable the No-Subscription-Warning"
+  include_tasks:
+    file: "disable-no-subscription-warning.yml"
+  when: "disable_no_subscription_warning"
+
+- name: "Add CPU Temperature to Summary"
+  include_tasks:
+    file: "add-cpu-temperature-to-summary.yml"
+  when: "add_cpu_temperature_to_summary"
+
+- name: "Uncolor No Subscription Icon"
+  include_tasks:
+    file: "uncolor-no-subscription-icon.yml"
+  when: "uncolor_no_subscription_icon"
+
+- name: "Uncolor Non-Production-Ready Repository Icon on Node Summary"
+  include_tasks:
+    file: "uncolor-non-production-ready-repository-icon-on-node-summary.yml"
+  when: "uncolor_non_production_ready_repository_icon_on_node_summary"
+...

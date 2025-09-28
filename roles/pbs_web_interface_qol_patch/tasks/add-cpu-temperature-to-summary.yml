@@ -1,0 +1,83 @@
+---
+- name: "Add Thermal State Endpoint to Nodes.pm"
+  replace:
+    path: "/usr/share/perl5/PVE/API2/Nodes.pm" #FIXME This file does not exist on Proxmox Backup Server
+    regexp: '(\s+PVE::pvecfg::version_text\(\);)(\n|.)*?\n\n(\s*my \$dinfo = df\(''/'', 1\);     # output is bytes)\n'
+    replace: |
+      \1
+      
+      \t$res->{thermalstate} = `sensors -j`;
+      
+      \3
+    backup: true
+
+- name: "Set the PBS Node Info Panel Height to 350"
+  replace:
+    path: "usr/share/javascript/proxmox-backup/js/proxmox-backup-gui.js"
+    regexp: 'Ext\.define\(''PBS\.NodeInfoPanel'',\s*\{\n(\s*)extend:\s*''Proxmox\.panel\.StatusView'',\n(\s*)alias:\s*''widget\.pbsNodeInfoPanel'',\n(\s*)\n(\s*)height:\s*\d+,'
+    replace: 'Ext.define(''PBS.NodeInfoPanel'', {\n\1extend: ''Proxmox.panel.StatusView'',\n\2alias: ''widget.pbsNodeInfoPanel'',\n\3\n\4height: 350,'
+    backup: true
+
+- name: "Add the Thermal State to the Dashboard"
+  replace:
+    path: "/usr/share/javascript/proxmox-backup/js/proxmox-backup-gui.js"
+    regexp: '\{\n\s*itemId:\s*''cpus'',\n\s*colspan:\s*2,\n\s*printBar:\s*false,\n\s*title:\s*gettext\(''CPU\(s\)''\),\n\s*textField:\s*''cpuinfo'',\n\s*renderer:\s*Proxmox.Utils.render_cpu_model,\n\s*value:\s*'''',\n\s*\},\n\s*\{\n\s*colspan:\s*2,\n\s*title:\s*gettext\(''Kernel\s*Version''\),'
+    replace: |
+      {
+      \t    itemId: 'cpus',
+      \t    colspan: 2,
+      \t    printBar: false,
+      \t    title: gettext('CPU(s)'),
+      \t    textField: 'cpuinfo',
+      \t    renderer: Proxmox.Utils.render_cpu_model,
+      \t    value: '',
+      \t},
+      \t{
+      \t    itemId: 'thermal',
+      \t    colspan: 2,
+      \t    printBar: false,
+      \t    title: gettext('CPU Temperature'),
+      \t    textField: 'thermalstate',
+      \t    renderer: function(value) {
+      \t         if (!value) {
+      \t             return "N/A";
+      \t         }
+      \t         const objValue = JSON.parse(value);
+      \t         const results = [];
+      \t         for (const key in objValue) {
+      \t             if (!key.startsWith("coretemp-isa-")) {
+      \t                 continue;
+      \t             }
+      \t             //const id = parseInt(key.replace("coretemp-isa-", ""));
+      \t             const coretempIsa = objValue[key];
+      \t             if (!coretempIsa) {
+      \t                 continue;
+      \t             }
+      \t             for (const key2 in coretempIsa) {
+      \t                 if (!key2.startsWith("Package id ")) {
+      \t                     continue;
+      \t                 }
+      \t                 const packageId = key2.replace("Package id ", "");
+      \t                 const packageTemps = coretempIsa[key2];
+      \t                 if (!packageTemps) {
+      \t                     continue;
+      \t                 }
+      \t                 const temp1Input = packageTemps["temp1_input"];
+      \t                 if (!temp1Input) {
+      \t                     continue;
+      \t                 }
+      \t                 results.push(`Package ${packageId}: ${temp1Input} °C`);
+      \t             }
+      \t         }
+      \t         if (!results || results.length === 0) {
+      \t             return "N/A";
+      \t         }
+      \t         return results.join(", ");
+      \t    }
+      \t},
+      \t{
+      \t    colspan: 2,
+      \t    title: gettext('Kernel Version'),
+    backup: true
+  notify: "Restart PBS Proxy"
+...
