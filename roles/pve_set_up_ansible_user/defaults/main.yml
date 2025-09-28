@@ -1,0 +1,4 @@
+---
+ansible_user: ansible
+allowed_lxc_ids: []   # Empty = allow all
+...

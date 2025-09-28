@@ -1,0 +1,9 @@
+---
+- name: "Set up Ansible user"
+  include_tasks:
+    file: "set_up_user.yml"
+
+- name: "Configure sudo for Ansible user"
+  include_tasks:
+    file: "configure_sudo.yml"
+...

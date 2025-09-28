@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Paul Hagedorn <panzer1119@gmail.com>
+  description: Sets up a dedicated Ansible user on Proxmox VE hosts with sudo privileges for pct and SSH key authentication.
+  license: Apache-2.0
+  min_ansible_version: "2.14"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
+    - proxmox
+    - ansible
+    - lxc
+...
