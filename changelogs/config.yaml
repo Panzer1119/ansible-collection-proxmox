@@ -1,15 +1,38 @@
 ---
-changelog_filename_template: ../CHANGELOG.rst
-changelog_filename_version_depth: 0
+add_plugin_period: true
+archive_path_template: changelogs/fragments/{version}
 changes_file: changelog.yaml
 changes_format: combined
+changelog_nice_yaml: true
+changelog_sort: version
+is_other_project: false
+ignore_other_fragment_extensions: true
 keep_fragments: false
 mention_ancestor: true
 new_plugins_after_name: removed_features
 notesdir: fragments
 prelude_section_name: release_summary
 prelude_section_title: Release Summary
-flatmap: true
+output:
+  - file: CHANGELOG.rst
+    filename_version_depth: 0
+    title_version_depth: 0
+    format: rst
+    global_toc: true
+    per_release_toc: false
+  - file: CHANGELOG.md
+    filename_version_depth: 0
+    title_version_depth: 0
+    format: md
+    global_toc: true
+    per_release_toc: false
+  - file: docs/changelog.md
+    filename_version_depth: 0
+    title_version_depth: 0
+    format: md
+    global_toc: false
+    per_release_toc: false
+sanitize_changelog: true
 sections:
   - - major_changes
     - Major Changes
@@ -31,3 +54,5 @@ sections:
     - Documentation Changes
 title: "Panzer1119 Proxmox Collection"
 trivial_section_name: trivial
+use_fqcn: true
+vcs: git
