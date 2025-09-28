@@ -1,0 +1,11 @@
+---
+# argument spec file for panzer1119.proxmox.pve_web_interface_qol_patch
+
+argument_specs:
+  main:
+    short_description: Role description.
+    options:
+      my_variable:
+        type: str
+        description: A simple string argument for demonstration.
+        default: "default_value"

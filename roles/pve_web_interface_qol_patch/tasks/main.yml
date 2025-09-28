@@ -1,0 +1,7 @@
+---
+# tasks file for panzer1119.proxmox.pve_web_interface_qol_patch
+
+# task example for debugging a value
+- name: Debug the value of my_variable
+  ansible.builtin.debug:
+    msg: "The value of my_variable is {{ my_variable }}"
