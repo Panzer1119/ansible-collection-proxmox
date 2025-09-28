@@ -1,0 +1,16 @@
+---
+ancestor: null
+releases:
+  0.1.0:
+    changes:
+      release_summary: Migrated the role pve_web_interface_qol_patch from its own
+        repository to this collection.
+    fragments:
+      - 0.1.0.yml
+    objects:
+      role:
+        - description: Applies some quality of life improvement patches to the web
+            interface of Proxmox VE
+          name: pve_web_interface_qol_patch
+          namespace: null
+    release_date: '2025-09-28'
