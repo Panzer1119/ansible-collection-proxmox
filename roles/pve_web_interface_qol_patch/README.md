@@ -27,22 +27,19 @@ Including an example of how to use your role (for instance, with variables passe
 - name: Execute tasks on servers
   hosts: servers
   roles:
-    - role: panzer1119.proxmox.run
-      run_x: 42
+    - role: panzer1119.proxmox.pve_web_interface_qol_patch
 ```
 
 Another way to consume this role would be:
 
 ```yaml
-- name: Initialize the run role from panzer1119.proxmox
+- name: Initialize the pve_web_interface_qol_patch role from panzer1119.proxmox
   hosts: servers
   gather_facts: false
   tasks:
-    - name: Trigger invocation of run role
+    - name: Trigger invocation of pve_web_interface_qol_patch role
       ansible.builtin.include_role:
-        name: panzer1119.proxmox.run
-      vars:
-        run_x: 42
+        name: panzer1119.proxmox.pve_web_interface_qol_patch
 ```
 
 Role Idempotency
