@@ -1,2 +1,7 @@
 ---
-# defaults file for panzer1119.proxmox.pve_web_interface_qol_patch
+disable_no_subscription_warning: true
+flatten_snapshot_tree: true
+add_cpu_temperature_to_summary: false
+uncolor_irrelevant_critical_icons: true
+uncolor_no_subscription_icon: true
+uncolor_non_production_ready_repository_icon_on_node_summary: true
