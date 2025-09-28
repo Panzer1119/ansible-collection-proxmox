@@ -4,6 +4,19 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.3.0
+======
+
+Release Summary
+---------------
+
+Created a role to set up an Ansible user on Proxmox VE hosts.
+
+New Roles
+---------
+
+- panzer1119.proxmox.pve_set_up_ansible_user - Sets up a dedicated Ansible user on Proxmox VE hosts with sudo privileges for pct and SSH key authentication.
+
 v0.2.0
 ======
 

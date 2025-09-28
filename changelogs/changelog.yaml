@@ -27,3 +27,15 @@ releases:
           name: pbs_web_interface_qol_patch
           namespace: null
     release_date: '2025-09-28'
+  0.3.0:
+    changes:
+      release_summary: Created a role to set up an Ansible user on Proxmox VE hosts.
+    fragments:
+      - 0.3.0.yml
+    objects:
+      role:
+        - description: Sets up a dedicated Ansible user on Proxmox VE hosts with sudo
+            privileges for pct and SSH key authentication.
+          name: pve_set_up_ansible_user
+          namespace: null
+    release_date: '2025-09-28'
