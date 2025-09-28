@@ -1,11 +1,11 @@
 ---
-- name: "Ensure Ansible user '{{ ansible_user }}' exists"
+- name: "Ensure Ansible user '{{ proxmox_user }}' exists"
   ansible.builtin.user:
-    name: "{{ ansible_user }}"
+    name: "{{ proxmox_user }}"
     comment: "Ansible User"
 #    generate_ssh_key: true
 #    ssh_key_type: ed25519
-#    ssh_key_comment: "{{ ansible_user }}@{{ ansible_hostname }}"
+#    ssh_key_comment: "{{ proxmox_user }}@{{ ansible_hostname }}"
     shell: /bin/bash
     create_home: true
     state: present

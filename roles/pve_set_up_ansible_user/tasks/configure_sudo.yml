@@ -5,20 +5,20 @@
     state: present
   become: true
 
-- name: "Allow or Deny '{{ ansible_user }}' to execute pct exec via sudo without password"
+- name: "Allow or Deny '{{ proxmox_user }}' to execute pct exec via sudo without password"
   community.general.sudoers:
     name: "pct-all"
-    user: "{{ ansible_user }}"
+    user: "{{ proxmox_user }}"
     commands:
       - "/usr/sbin/pct exec *"
     nopassword: true
     state: "{{ 'present' if allowed_lxc_ids | length == 0 else 'absent' }}"
     validation: "required"
 
-- name: "Allow '{{ ansible_user }}' to execute pct exec via sudo without password for specific LXC IDs"
+- name: "Allow '{{ proxmox_user }}' to execute pct exec via sudo without password for specific LXC IDs"
   community.general.sudoers:
     name: "pct-ids"
-    user: "{{ ansible_user }}"
+    user: "{{ proxmox_user }}"
     commands:
       - "/usr/sbin/pct exec {{ item }} *"
     nopassword: true
