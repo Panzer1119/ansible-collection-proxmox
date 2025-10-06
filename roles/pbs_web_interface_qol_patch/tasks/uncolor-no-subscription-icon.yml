@@ -1,5 +1,5 @@
 ---
-- name: "Uncolor the No-Subscription-Icon in proxmox-backup-gui.js (PBS 3.3+)"
+- name: "Uncolor the No-Subscription-Icon in proxmox-backup-gui.js (PBS 3.3+, 4.x)"
   replace:
     path: "/usr/share/javascript/proxmox-backup/js/proxmox-backup-gui.js"
     regexp: 'case 0:\n(\s*)icon = ''times-circle(\s*critical)?'';\n'
@@ -7,6 +7,6 @@
       case 0:
       \1icon = 'times-circle';
     backup: true
-  when: pbs_version is version('3.3', '>=') and pbs_version is version('4.0', '<')
+  when: pbs_version is version('3.3', '>=') and pbs_version is version('5.0', '<')
   notify: "Restart PBS Proxy"
 ...
