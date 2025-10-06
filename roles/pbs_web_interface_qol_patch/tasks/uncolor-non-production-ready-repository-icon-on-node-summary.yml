@@ -1,10 +1,23 @@
 ---
-- name: "Uncolor the non production-ready repository icon in proxmoxlib.js (PBS 3.x)"
+- name: "Uncolor the non production-ready repository icon in proxmoxlib.js (PBS 3.3.x)"
   replace:
     path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
     regexp: 'fmt\(gettext\(''Non production-ready repository enabled!''\), ''exclamation-circle.*?''\);'
     replace: "fmt(gettext('Non production-ready repository enabled!'), 'exclamation-circle');"
     backup: true
-  when: pbs_version is version('3.3', '>=') and pbs_version is version('4.0', '<')
+  when: pbs_version is version('3.3', '>=') and pbs_version is version('3.4', '<')
+  notify: "Restart PBS Proxy"
+
+- name: "Uncolor the non production-ready repository icon in proxmoxlib.js (PBS 3.4.x)"
+  replace:
+    path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
+    regexp: 'fmt\(\n(\s*)gettext\(''Non production-ready repository enabled!''\),\n(\s*)''exclamation-circle(\s*warning)?'',\n(\s*)\)\n'
+    replace: |
+      fmt(
+      \1gettext('Non production-ready repository enabled!'),
+      \2'exclamation-circle',
+      \3)
+    backup: true
+  when: pbs_version is version('3.4', '>=') and pbs_version is version('4.0', '<')
   notify: "Restart PBS Proxy"
 ...
