@@ -103,3 +103,10 @@ releases:
     fragments:
       - 0.5.0.yml
     release_date: '2025-10-06'
+  0.5.1:
+    changes:
+      bugfixes:
+        - pbs_web_interface_qol_patch - Add support for Proxmox Backup Server 3.4.
+    fragments:
+      - 0.5.1.yml
+    release_date: '2025-10-06'
