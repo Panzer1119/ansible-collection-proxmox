@@ -1,0 +1,4 @@
+---
+major_changes:
+  - pbs_web_interface_qol_patch - Add support for Proxmox Backup Server 4.0
+...
