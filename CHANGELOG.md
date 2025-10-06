@@ -2,23 +2,25 @@
 
 **Topics**
 
-- <a href="#v0-5-1">v0\.5\.1</a>
+- <a href="#v0-5-2">v0\.5\.2</a>
     - <a href="#bugfixes">Bugfixes</a>
+- <a href="#v0-5-1">v0\.5\.1</a>
+    - <a href="#bugfixes-1">Bugfixes</a>
 - <a href="#v0-5-0">v0\.5\.0</a>
     - <a href="#minor-changes">Minor Changes</a>
-    - <a href="#bugfixes-1">Bugfixes</a>
-- <a href="#v0-4-2">v0\.4\.2</a>
     - <a href="#bugfixes-2">Bugfixes</a>
-- <a href="#v0-4-1">v0\.4\.1</a>
+- <a href="#v0-4-2">v0\.4\.2</a>
     - <a href="#bugfixes-3">Bugfixes</a>
+- <a href="#v0-4-1">v0\.4\.1</a>
+    - <a href="#bugfixes-4">Bugfixes</a>
 - <a href="#v0-4-0">v0\.4\.0</a>
     - <a href="#major-changes">Major Changes</a>
 - <a href="#v0-3-3">v0\.3\.3</a>
-    - <a href="#bugfixes-4">Bugfixes</a>
-- <a href="#v0-3-2">v0\.3\.2</a>
     - <a href="#bugfixes-5">Bugfixes</a>
-- <a href="#v0-3-1">v0\.3\.1</a>
+- <a href="#v0-3-2">v0\.3\.2</a>
     - <a href="#bugfixes-6">Bugfixes</a>
+- <a href="#v0-3-1">v0\.3\.1</a>
+    - <a href="#bugfixes-7">Bugfixes</a>
 - <a href="#v0-3-0">v0\.3\.0</a>
     - <a href="#release-summary">Release Summary</a>
     - <a href="#new-roles">New Roles</a>
@@ -29,10 +31,18 @@
     - <a href="#release-summary-2">Release Summary</a>
     - <a href="#new-roles-2">New Roles</a>
 
+<a id="v0-5-2"></a>
+## v0\.5\.2
+
+<a id="bugfixes"></a>
+### Bugfixes
+
+* pbs\_web\_interface\_qol\_patch \- Fix tasks\.
+
 <a id="v0-5-1"></a>
 ## v0\.5\.1
 
-<a id="bugfixes"></a>
+<a id="bugfixes-1"></a>
 ### Bugfixes
 
 * pbs\_web\_interface\_qol\_patch \- Add support for Proxmox Backup Server 3\.4\.
@@ -46,7 +56,7 @@
 * pbs\_web\_interface\_qol\_patch \- Add support for Proxmox Backup Server 3\.4\.
 * pve\_web\_interface\_qol\_patch \- Add support for Proxmox VE 8\.4\.
 
-<a id="bugfixes-1"></a>
+<a id="bugfixes-2"></a>
 ### Bugfixes
 
 * pve\_web\_interface\_qol\_patch \- Fix version extraction\.
@@ -54,7 +64,7 @@
 <a id="v0-4-2"></a>
 ## v0\.4\.2
 
-<a id="bugfixes-2"></a>
+<a id="bugfixes-3"></a>
 ### Bugfixes
 
 * pbs\_web\_interface\_qol\_patch \- Correct typo\.
@@ -62,7 +72,7 @@
 <a id="v0-4-1"></a>
 ## v0\.4\.1
 
-<a id="bugfixes-3"></a>
+<a id="bugfixes-4"></a>
 ### Bugfixes
 
 * pbs\_web\_interface\_qol\_patch \- Allow version check command to run in check mode\.
@@ -80,7 +90,7 @@
 <a id="v0-3-3"></a>
 ## v0\.3\.3
 
-<a id="bugfixes-4"></a>
+<a id="bugfixes-5"></a>
 ### Bugfixes
 
 * pve\_set\_up\_ansible\_user \- Switch to mapping the list of allowed lxc ids to commands instead of looping over it\. Because the loop executes the task multiple times\, it would overwrite the sudoers file multiple times\, resulting in only the last entry being present\.
@@ -88,7 +98,7 @@
 <a id="v0-3-2"></a>
 ## v0\.3\.2
 
-<a id="bugfixes-5"></a>
+<a id="bugfixes-6"></a>
 ### Bugfixes
 
 * pve\_set\_up\_ansible\_user \- Fixed an indentation error in the sudoers configuration task that prevented the looping\.
@@ -96,7 +106,7 @@
 <a id="v0-3-1"></a>
 ## v0\.3\.1
 
-<a id="bugfixes-6"></a>
+<a id="bugfixes-7"></a>
 ### Bugfixes
 
 * pve\_set\_up\_ansible\_user \- Fixed an issue where the variable <code>ansible\_user</code> was used\, despite it being a reserved Ansible variable\. This has been replaced with <code>proxmox\_user</code> to avoid conflicts\.

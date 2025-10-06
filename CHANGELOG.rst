@@ -4,6 +4,14 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.5.2
+======
+
+Bugfixes
+--------
+
+- pbs_web_interface_qol_patch - Fix tasks.
+
 v0.5.1
 ======
 
