@@ -10,6 +10,11 @@
     pbs_version: "{{ (pbs_version_raw.stdout | from_json)[0].Version }}"
   changed_when: false
 
+- name: "Show detected Proxmox Backup Server version"
+  debug:
+    msg: "Detected Proxmox Backup Server version is {{ pbs_version }}"
+  changed_when: false
+
 - name: "Disable the No-Subscription-Warning"
   include_tasks:
     file: "disable-no-subscription-warning.yml"
