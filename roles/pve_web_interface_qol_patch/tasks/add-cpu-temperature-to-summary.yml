@@ -1,5 +1,5 @@
 ---
-- name: "Add Thermal State Endpoint to Nodes.pm"
+- name: "Add Thermal State Endpoint to Nodes.pm (PVE 8.x)"
   replace:
     path: "/usr/share/perl5/PVE/API2/Nodes.pm"
     regexp: '(\s+PVE::pvecfg::version_text\(\);)(\n|.)*?\n\n(\s*my \$dinfo = df\(''/'', 1\);     # output is bytes)\n'
@@ -10,15 +10,17 @@
       
       \3
     backup: true
+  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
 
-- name: "Set the PVE Node Status View Height to 340"
+- name: "Set the PVE Node Status View Height to 340 (PVE 8.x)"
   replace:
     path: "/usr/share/pve-manager/js/pvemanagerlib.js"
     regexp: 'Ext\.define\(.PVE\.node\.StatusView., \{\n(\s*)extend: .Proxmox\.panel\.StatusView.,\n(\s*)alias: .widget\.pveNodeStatus.,\n(\s*)\n(\s*)height: \d+,'
     replace: 'Ext.define(''PVE.node.StatusView'', {\n\1extend: ''Proxmox.panel.StatusView'',\n\2alias: ''widget.pveNodeStatus'',\n\3\n\4height: 350,'
     backup: true
+  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
 
-- name: "Add the Thermal State to the Summary"
+- name: "Add the Thermal State to the Summary (PVE 8.x)"
   replace:
     path: "/usr/share/pve-manager/js/pvemanagerlib.js"
     regexp: '\{\n\s*itemId:\s*''version'',\n\s*colspan:\s*2,\n\s*printBar:\s*false,\n\s*title:\s*gettext\(''Manager\s*Version''\),\n\s*textField:\s*''pveversion'',\n\s*value:\s*'''',\n\s*\},(\n.*?)+\],\n\s*\n\s*updateTitle: function\(\) \{\n'
@@ -78,4 +80,6 @@
       
           updateTitle: function() {
     backup: true
+  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
   notify: "Restart PVE Proxy"
+...

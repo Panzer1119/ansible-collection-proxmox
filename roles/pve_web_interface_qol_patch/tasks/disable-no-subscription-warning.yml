@@ -1,10 +1,10 @@
 ---
-- name: "Disable subscription warning (PVE 8.2.x)"
+- name: "Disable subscription warning (PVE 8.x)"
   replace:
     path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
     regexp: '\.data\.status\.toLowerCase\(\) !== .active.\) \{'
     replace: ".data.status.toLowerCase() !== 'active' && false) {"
     backup: true
-  when: pve_version is version('8.2', '>=') and pve_version is version('8.3', '<')
+  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
   notify: "Restart PVE Proxy"
 ...

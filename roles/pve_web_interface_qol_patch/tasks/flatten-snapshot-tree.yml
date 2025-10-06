@@ -1,8 +1,10 @@
 ---
-- name: "Replace a line in pvemanagerlib.js"
+- name: "Flatten snapshot tree in pvemanagerlib.js (PVE 8.x)"
   replace:
     path: "/usr/share/pve-manager/js/pvemanagerlib.js"
     regexp: 'if \(item\.parent && idhash\[item\.parent\]\) {'
     replace: "if (item.parent && idhash[item.parent] && false) {"
     backup: true
+  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
   notify: "Restart PVE Proxy"
+...

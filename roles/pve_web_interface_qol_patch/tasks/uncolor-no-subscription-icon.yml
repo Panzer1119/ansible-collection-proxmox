@@ -1,5 +1,5 @@
 ---
-- name: "Add health icon critical-uncolored to pvemanagerlib.js"
+- name: "Add health icon critical-uncolored to pvemanagerlib.js (PVE 8.x)"
   replace:
     path: "/usr/share/pve-manager/js/pvemanagerlib.js"
     regexp: 'case ''critical'':\n(.*?)icon = ''critical fa-times'';\n(.*?)break;\n(.*?)default: break;\n'
@@ -12,8 +12,9 @@
       \2break;
       \3default: break;
     backup: true
+  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
 
-- name: "Uncolor the No-Subscription-Icon in pvemanagerlib.js"
+- name: "Uncolor the No-Subscription-Icon in pvemanagerlib.js (PVE 8.x)"
   replace:
     path: "/usr/share/pve-manager/js/pvemanagerlib.js"
     regexp: 'title: gettext\(''No Subscription''\),\n(.*?)iconCls: PVE\.Utils\.get_health_icon\(.+?, true\),\n(.*?)text: gettext\(''You have at least one node without subscription\.''\),\n'
@@ -22,4 +23,6 @@
       \1iconCls: PVE.Utils.get_health_icon('critical-uncolored', true),
       \2text: gettext('You have at least one node without subscription.'),
     backup: true
+  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
   notify: "Restart PVE Proxy"
+...
