@@ -4,6 +4,15 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.4.1
+======
+
+Bugfixes
+--------
+
+- pbs_web_interface_qol_patch - Allow version check command to run in check mode.
+- pve_web_interface_qol_patch - Allow version check command to run in check mode.
+
 v0.4.0
 ======
 
