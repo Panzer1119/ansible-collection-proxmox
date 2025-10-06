@@ -11,9 +11,9 @@
 - name: "Disable subscription warning in proxmoxlib.js (PBS 3.4.x)"
   replace:
     path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
-    regexp: '\.data\.status\.toLowerCase\(\) !== ''active''\n(\s*)\) \{\n'
+    regexp: 'res\.data\.status\.toLowerCase\(\) !== ''active''\n(\s*)\) \{\n'
     replace: |
-      (.data.status.toLowerCase() !== 'active' && false)
+      (res.data.status.toLowerCase() !== 'active' && false)
       \1) {
     backup: true
   when: pbs_version is version('3.4', '>=') and pbs_version is version('4.0', '<')
