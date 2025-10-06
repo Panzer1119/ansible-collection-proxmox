@@ -2,6 +2,7 @@
 - name: "Get Proxmox VE version"
   command: "pveversion"
   register: pve_version_raw
+  check_mode: false
   changed_when: false
 
 - name: "Extract Proxmox VE version number"
