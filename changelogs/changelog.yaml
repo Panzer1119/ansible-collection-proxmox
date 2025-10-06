@@ -86,3 +86,10 @@ releases:
     fragments:
       - 0.4.1.yml
     release_date: '2025-10-06'
+  0.4.2:
+    changes:
+      bugfixes:
+        - pbs_web_interface_qol_patch - Correct typo.
+    fragments:
+      - 0.4.2.yml
+    release_date: '2025-10-06'
