@@ -1,9 +1,10 @@
 ---
-- name: "Replace a line in proxmoxlib.js"
+- name: "Disable subscription warning (PBS 3.3.x)"
   replace:
     path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
     regexp: '\.data\.status\.toLowerCase\(\) !== .active.\) \{'
     replace: ".data.status.toLowerCase() !== 'active' && false) {"
     backup: true
+  when: pbs_version is version('3.3', '>=') and pbs_version is version('3.4', '<')
   notify: "Restart PBS Proxy"
 ...
