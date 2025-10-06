@@ -7,7 +7,7 @@
 
 - name: "Extract Proxmox Backup Server version"
   set_fact:
-    pbs_version: "{{ (pbs_version_raw.stdout | from_json)[0].version }}"
+    pbs_version: "{{ (pbs_version_raw.stdout | from_json)[0].Version }}"
   changed_when: false
 
 - name: "Disable the No-Subscription-Warning"
