@@ -1,0 +1,4 @@
+---
+major_changes:
+  - pve_web_interface_qol_patch - Check for Proxmox VE version 8 and adjust patching accordingly.
+  - pbs_web_interface_qol_patch - Check for Proxmox Backup Server version 3 and adjust patching accordingly.
