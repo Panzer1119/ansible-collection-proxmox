@@ -2,6 +2,8 @@
 
 **Topics**
 
+- <a href="#v0-6-0">v0\.6\.0</a>
+    - <a href="#major-changes">Major Changes</a>
 - <a href="#v0-5-2">v0\.5\.2</a>
     - <a href="#bugfixes">Bugfixes</a>
 - <a href="#v0-5-1">v0\.5\.1</a>
@@ -14,7 +16,7 @@
 - <a href="#v0-4-1">v0\.4\.1</a>
     - <a href="#bugfixes-4">Bugfixes</a>
 - <a href="#v0-4-0">v0\.4\.0</a>
-    - <a href="#major-changes">Major Changes</a>
+    - <a href="#major-changes-1">Major Changes</a>
 - <a href="#v0-3-3">v0\.3\.3</a>
     - <a href="#bugfixes-5">Bugfixes</a>
 - <a href="#v0-3-2">v0\.3\.2</a>
@@ -30,6 +32,14 @@
 - <a href="#v0-1-0">v0\.1\.0</a>
     - <a href="#release-summary-2">Release Summary</a>
     - <a href="#new-roles-2">New Roles</a>
+
+<a id="v0-6-0"></a>
+## v0\.6\.0
+
+<a id="major-changes"></a>
+### Major Changes
+
+* pbs\_web\_interface\_qol\_patch \- Add support for Proxmox Backup Server 4\.0
 
 <a id="v0-5-2"></a>
 ## v0\.5\.2
@@ -81,7 +91,7 @@
 <a id="v0-4-0"></a>
 ## v0\.4\.0
 
-<a id="major-changes"></a>
+<a id="major-changes-1"></a>
 ### Major Changes
 
 * pbs\_web\_interface\_qol\_patch \- Check for Proxmox Backup Server version 3 and adjust patching accordingly\.
