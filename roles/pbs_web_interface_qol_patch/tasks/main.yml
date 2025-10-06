@@ -2,6 +2,7 @@
 - name: "Get Proxmox Backup Server version"
   command: "proxmox-backup-manager version --output-format=json"
   register: pbs_version_raw
+  check_mode: false
   changed_when: false
 
 - name: "Extract Proxmox Backup Server version"
