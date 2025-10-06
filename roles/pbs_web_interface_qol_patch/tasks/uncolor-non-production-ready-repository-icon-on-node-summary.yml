@@ -16,7 +16,7 @@
       fmt(
       \1gettext('Non production-ready repository enabled!'),
       \2'exclamation-circle',
-      \3)
+      \4)
     backup: true
   when: pbs_version is version('3.4', '>=') and pbs_version is version('4.0', '<')
   notify: "Restart PBS Proxy"
