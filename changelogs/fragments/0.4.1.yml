@@ -1,0 +1,4 @@
+---
+bugfixes:
+  - pve_web_interface_qol_patch - Allow version check command to run in check mode. Fix version extraction.
+  - pbs_web_interface_qol_patch - Allow version check command to run in check mode.
