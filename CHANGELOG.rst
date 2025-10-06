@@ -4,6 +4,15 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.4.0
+======
+
+Major Changes
+-------------
+
+- pbs_web_interface_qol_patch - Check for Proxmox Backup Server version 3 and adjust patching accordingly.
+- pve_web_interface_qol_patch - Check for Proxmox VE version 8 and adjust patching accordingly.
+
 v0.3.3
 ======
 

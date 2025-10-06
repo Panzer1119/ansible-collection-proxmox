@@ -1,5 +1,14 @@
 # Panzer1119 Proxmox Collection Release Notes
 
+<a id="v0-4-0"></a>
+## v0\.4\.0
+
+<a id="major-changes"></a>
+### Major Changes
+
+* pbs\_web\_interface\_qol\_patch \- Check for Proxmox Backup Server version 3 and adjust patching accordingly\.
+* pve\_web\_interface\_qol\_patch \- Check for Proxmox VE version 8 and adjust patching accordingly\.
+
 <a id="v0-3-3"></a>
 ## v0\.3\.3
 
