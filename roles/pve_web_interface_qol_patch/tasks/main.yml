@@ -1,4 +1,19 @@
 ---
+- name: "Get Proxmox VE version"
+  command: "pveversion"
+  register: pve_version_raw
+  changed_when: false
+
+- name: "Extract Proxmox VE version number"
+  set_fact:
+    pve_version: "{{ pve_version_raw.stdout | regex_search('pve-manager/([0-9\\.-]+)', '\\1') }}"
+  changed_when: false
+
+- name: "Show detected Proxmox VE version"
+  debug:
+    msg: "Detected Proxmox VE version: {{ pve_version }}"
+  changed_when: false
+
 - name: "Disable the No-Subscription-Warning"
   include_tasks:
     file: "disable-no-subscription-warning.yml"
@@ -28,3 +43,4 @@
   include_tasks:
     file: "uncolor-non-production-ready-repository-icon-on-node-summary.yml"
   when: "uncolor_non_production_ready_repository_icon_on_node_summary"
+...
