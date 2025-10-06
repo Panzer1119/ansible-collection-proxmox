@@ -8,7 +8,7 @@
   when: pbs_version is version('3.3', '>=') and pbs_version is version('3.4', '<')
   notify: "Restart PBS Proxy"
 
-- name: "Uncolor the non production-ready repository icon in proxmoxlib.js (PBS 3.4.x)"
+- name: "Uncolor the non production-ready repository icon in proxmoxlib.js (PBS 3.4.x, 4+)"
   replace:
     path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
     regexp: 'fmt\(\n(\s*)gettext\(''Non production-ready repository enabled!''\),\n(\s*)''exclamation-circle(\s*warning)?'',\n(\s*)\)\n'
@@ -18,6 +18,6 @@
       \2'exclamation-circle',
       \4)
     backup: true
-  when: pbs_version is version('3.4', '>=') and pbs_version is version('4.0', '<')
+  when: pbs_version is version('3.4', '>=') and pbs_version is version('5.0', '<')
   notify: "Restart PBS Proxy"
 ...
