@@ -1,4 +1,14 @@
 ---
+- name: "Get Proxmox Backup Server version"
+  command: "proxmox-backup-manager version --output-format=json"
+  register: pbs_version_raw
+  changed_when: false
+
+- name: "Extract Proxmox Backup Server version"
+  set_fact:
+    pbs_version: "{{ (pbs_version_raw.stdout | from_json)[0].version }}"
+  changed_when: false
+
 - name: "Disable the No-Subscription-Warning"
   include_tasks:
     file: "disable-no-subscription-warning.yml"
