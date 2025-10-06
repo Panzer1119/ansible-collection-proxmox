@@ -4,6 +4,14 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.6.0
+======
+
+Major Changes
+-------------
+
+- pbs_web_interface_qol_patch - Add support for Proxmox Backup Server 4.0
+
 v0.5.2
 ======
 
