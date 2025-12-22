@@ -41,6 +41,7 @@
       \2offline_status: "",
       \3},
     backup: true
+  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
 
 - name: "Replace a line in pvemanagerlib.js (PVE 8.x)"
   replace:
