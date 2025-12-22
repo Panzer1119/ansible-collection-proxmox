@@ -5,6 +5,6 @@
     regexp: 'fmt\(gettext\(''Non production-ready repository enabled!''\), ''exclamation-circle.*?''\);'
     replace: "fmt(gettext('Non production-ready repository enabled!'), 'exclamation-circle');"
     backup: true
-  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
+  when: skip_version_check or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
   notify: "Restart PVE Proxy"
 ...

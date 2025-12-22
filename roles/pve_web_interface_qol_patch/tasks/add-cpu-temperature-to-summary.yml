@@ -10,7 +10,7 @@
       
       \3
     backup: true
-  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
+  when: skip_version_check or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
 
 - name: "Set the PVE Node Status View Height to 340 (PVE 8.x)"
   replace:
@@ -18,7 +18,7 @@
     regexp: 'Ext\.define\(.PVE\.node\.StatusView., \{\n(\s*)extend: .Proxmox\.panel\.StatusView.,\n(\s*)alias: .widget\.pveNodeStatus.,\n(\s*)\n(\s*)height: \d+,'
     replace: 'Ext.define(''PVE.node.StatusView'', {\n\1extend: ''Proxmox.panel.StatusView'',\n\2alias: ''widget.pveNodeStatus'',\n\3\n\4height: 350,'
     backup: true
-  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
+  when: skip_version_check or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
 
 - name: "Add the Thermal State to the Summary (PVE 8.x)"
   replace:
@@ -80,6 +80,6 @@
       
           updateTitle: function() {
     backup: true
-  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
+  when: skip_version_check or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
   notify: "Restart PVE Proxy"
 ...

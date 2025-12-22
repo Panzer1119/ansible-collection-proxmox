@@ -12,7 +12,7 @@
       \2break;
       \3default: break;
     backup: true
-  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
+  when: skip_version_check or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
 
 - name: "Uncolor the No-Subscription-Icon in pvemanagerlib.js (PVE 8.x)"
   replace:
@@ -23,6 +23,6 @@
       \1iconCls: PVE.Utils.get_health_icon('critical-uncolored', true),
       \2text: gettext('You have at least one node without subscription.'),
     backup: true
-  when: pve_version is version('8.2', '>=') and pve_version is version('9.0', '<')
+  when: skip_version_check or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
   notify: "Restart PVE Proxy"
 ...
