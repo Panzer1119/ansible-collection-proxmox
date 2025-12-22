@@ -1,5 +1,13 @@
 # Panzer1119 Proxmox Collection Release Notes
 
+<a id="v0-7-0"></a>
+## v0\.7\.0
+
+<a id="major-changes"></a>
+### Major Changes
+
+* pve\_web\_interface\_qol\_patch \- Add support for Proxmox Virtual Environment 9\.0
+
 <a id="v0-6-1"></a>
 ## v0\.6\.1
 
@@ -12,7 +20,7 @@
 <a id="v0-6-0"></a>
 ## v0\.6\.0
 
-<a id="major-changes"></a>
+<a id="major-changes-1"></a>
 ### Major Changes
 
 * pbs\_web\_interface\_qol\_patch \- Add support for Proxmox Backup Server 4\.0
@@ -67,7 +75,7 @@
 <a id="v0-4-0"></a>
 ## v0\.4\.0
 
-<a id="major-changes-1"></a>
+<a id="major-changes-2"></a>
 ### Major Changes
 
 * pbs\_web\_interface\_qol\_patch \- Check for Proxmox Backup Server version 3 and adjust patching accordingly\.

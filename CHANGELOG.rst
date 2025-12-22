@@ -4,6 +4,14 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.7.0
+======
+
+Major Changes
+-------------
+
+- pve_web_interface_qol_patch - Add support for Proxmox Virtual Environment 9.0
+
 v0.6.1
 ======
 
