@@ -1,5 +1,14 @@
 # Panzer1119 Proxmox Collection Release Notes
 
+<a id="v0-6-1"></a>
+## v0\.6\.1
+
+<a id="minor-changes"></a>
+### Minor Changes
+
+* pbs\_web\_interface\_qol\_patch \- Add option to skip version check\.
+* pve\_web\_interface\_qol\_patch \- Add option to skip version check\.
+
 <a id="v0-6-0"></a>
 ## v0\.6\.0
 
@@ -27,7 +36,7 @@
 <a id="v0-5-0"></a>
 ## v0\.5\.0
 
-<a id="minor-changes"></a>
+<a id="minor-changes-1"></a>
 ### Minor Changes
 
 * pbs\_web\_interface\_qol\_patch \- Add support for Proxmox Backup Server 3\.4\.

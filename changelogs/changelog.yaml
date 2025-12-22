@@ -124,3 +124,11 @@ releases:
     fragments:
       - 0.6.0.yml
     release_date: '2025-10-06'
+  0.6.1:
+    changes:
+      minor_changes:
+        - pbs_web_interface_qol_patch - Add option to skip version check.
+        - pve_web_interface_qol_patch - Add option to skip version check.
+    fragments:
+      - 0.6.1.yml
+    release_date: '2025-12-22'

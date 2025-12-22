@@ -4,6 +4,15 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.6.1
+======
+
+Minor Changes
+-------------
+
+- pbs_web_interface_qol_patch - Add option to skip version check.
+- pve_web_interface_qol_patch - Add option to skip version check.
+
 v0.6.0
 ======
 

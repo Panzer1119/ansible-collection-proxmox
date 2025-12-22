@@ -2,6 +2,8 @@
 
 **Topics**
 
+- <a href="#v0-6-1">v0\.6\.1</a>
+    - <a href="#minor-changes">Minor Changes</a>
 - <a href="#v0-6-0">v0\.6\.0</a>
     - <a href="#major-changes">Major Changes</a>
 - <a href="#v0-5-2">v0\.5\.2</a>
@@ -9,7 +11,7 @@
 - <a href="#v0-5-1">v0\.5\.1</a>
     - <a href="#bugfixes-1">Bugfixes</a>
 - <a href="#v0-5-0">v0\.5\.0</a>
-    - <a href="#minor-changes">Minor Changes</a>
+    - <a href="#minor-changes-1">Minor Changes</a>
     - <a href="#bugfixes-2">Bugfixes</a>
 - <a href="#v0-4-2">v0\.4\.2</a>
     - <a href="#bugfixes-3">Bugfixes</a>
@@ -32,6 +34,15 @@
 - <a href="#v0-1-0">v0\.1\.0</a>
     - <a href="#release-summary-2">Release Summary</a>
     - <a href="#new-roles-2">New Roles</a>
+
+<a id="v0-6-1"></a>
+## v0\.6\.1
+
+<a id="minor-changes"></a>
+### Minor Changes
+
+* pbs\_web\_interface\_qol\_patch \- Add option to skip version check\.
+* pve\_web\_interface\_qol\_patch \- Add option to skip version check\.
 
 <a id="v0-6-0"></a>
 ## v0\.6\.0
@@ -60,7 +71,7 @@
 <a id="v0-5-0"></a>
 ## v0\.5\.0
 
-<a id="minor-changes"></a>
+<a id="minor-changes-1"></a>
 ### Minor Changes
 
 * pbs\_web\_interface\_qol\_patch \- Add support for Proxmox Backup Server 3\.4\.
