@@ -7,6 +7,6 @@
       case 0:
       \1icon = 'times-circle';
     backup: true
-  when: pbs_version is version('3.3', '>=') and pbs_version is version('5.0', '<')
+  when: skip_version_check or (pbs_version is version('3.3', '>=') and pbs_version is version('5.0', '<'))
   notify: "Restart PBS Proxy"
 ...

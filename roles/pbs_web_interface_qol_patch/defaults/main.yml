@@ -3,4 +3,5 @@ disable_no_subscription_warning: true
 add_cpu_temperature_to_summary: false
 uncolor_no_subscription_icon: true
 uncolor_non_production_ready_repository_icon_on_node_summary: true
+skip_version_check: false
 ...

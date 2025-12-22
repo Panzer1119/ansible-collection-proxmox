@@ -5,7 +5,7 @@
     regexp: '\.data\.status\.toLowerCase\(\) !== .active.\) \{'
     replace: ".data.status.toLowerCase() !== 'active' && false) {"
     backup: true
-  when: pbs_version is version('3.3', '>=') and pbs_version is version('3.4', '<')
+  when: skip_version_check or (pbs_version is version('3.3', '>=') and pbs_version is version('3.4', '<'))
   notify: "Restart PBS Proxy"
 
 - name: "Disable subscription warning in proxmoxlib.js (PBS 3.4.x, 4.x)"
@@ -16,6 +16,6 @@
       (res.data.status.toLowerCase() !== 'active' && false)
       \1) {
     backup: true
-  when: pbs_version is version('3.4', '>=') and pbs_version is version('5.0', '<')
+  when: skip_version_check or (pbs_version is version('3.4', '>=') and pbs_version is version('5.0', '<'))
   notify: "Restart PBS Proxy"
 ...
