@@ -1,0 +1,5 @@
+---
+minor_changes:
+  - pbs_web_interface_qol_patch - Add option to skip version check.
+  - pve_web_interface_qol_patch - Add option to skip version check.
+...
