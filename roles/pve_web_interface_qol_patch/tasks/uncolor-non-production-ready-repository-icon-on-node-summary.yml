@@ -7,4 +7,17 @@
     backup: true
   when: skip_version_check or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
   notify: "Restart PVE Proxy"
+
+- name: "Replace a line in proxmoxlib.js (PVE 9.x)"
+  replace:
+    path: "/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
+    regexp: 'fmt\(\n(\s*)gettext\(''Non production-ready repository enabled!''\),\n(\s*)''exclamation-circle(\s*warning)?'',\n(\s*)\)\n'
+    replace: |
+      fmt(
+      \1gettext('Non production-ready repository enabled!'),
+      \2'exclamation-circle',
+      \4)
+    backup: true
+  when: skip_version_check or (pve_version is version('9.0', '>=') and pve_version is version('10.0', '<'))
+  notify: "Restart PVE Proxy"
 ...
