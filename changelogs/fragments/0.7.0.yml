@@ -1,0 +1,4 @@
+---
+major_changes:
+  - pve_web_interface_qol_patch - Add support for Proxmox Virtual Environment 9.0
+...
