@@ -1,0 +1,6 @@
+---
+release_summary: Created a role to set up a QDevice in a Proxmox VE cluster.
+add object.role:
+  - name: pve_qdevice
+    description: Sets up a QDevice in a Proxmox VE cluster to improve quorum handling.
+...
