@@ -140,3 +140,15 @@ releases:
     fragments:
       - 0.7.0.yml
     release_date: '2025-12-22'
+  0.8.0:
+    changes:
+      release_summary: Created a role to set up a QDevice in a Proxmox VE cluster.
+    fragments:
+      - 0.8.0.yml
+    objects:
+      role:
+        - description: Sets up a QDevice in a Proxmox VE cluster to improve quorum
+            handling.
+          name: pve_qdevice
+          namespace: null
+    release_date: '2025-12-28'

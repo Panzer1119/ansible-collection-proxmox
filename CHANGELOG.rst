@@ -4,6 +4,19 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.8.0
+======
+
+Release Summary
+---------------
+
+Created a role to set up a QDevice in a Proxmox VE cluster.
+
+New Roles
+---------
+
+- panzer1119.proxmox.pve_qdevice - Sets up a QDevice in a Proxmox VE cluster to improve quorum handling.
+
 v0.7.0
 ======
 
