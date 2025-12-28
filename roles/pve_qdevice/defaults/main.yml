@@ -10,4 +10,7 @@ qdevice_setup_node: "{{ groups['cluster'][0] }}"
 
 # Whether to allow password-based root SSH temporarily
 qdevice_allow_root_ssh: false
+
+# Whether to automatically update qdevice certificates (only use this if you know what you are doing)
+qdevice_auto_updatecerts: false
 ...

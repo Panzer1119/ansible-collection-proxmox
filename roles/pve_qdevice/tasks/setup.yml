@@ -16,4 +16,36 @@
 - name: "Show qdevice setup output"
   debug:
     var: qdevice_setup.stdout_lines
+
+- name: "Detect certificate-related failure"
+  set_fact:
+    qdevice_cert_issue: >
+      {{ 'Host key verification failed' in qdevice_setup.stderr }}
+  run_once: true
+
+- name: "Warn about certificate regeneration"
+  debug:
+    msg: >
+      QDevice setup failed due to host key verification.
+      Running 'pvecm updatecerts' will regenerate cluster certificates
+      and briefly restart cluster services.
+  when: qdevice_cert_issue
+  run_once: true
+
+- name: "Regenerate cluster certificates"
+  command: pvecm updatecerts --force
+  delegate_to: "{{ qdevice_setup_node }}"
+  run_once: true
+  when:
+    - qdevice_cert_issue
+    - qdevice_auto_updatecerts
+
+- name: "Retry qdevice setup after cert update"
+  command: >
+    pvecm qdevice setup {{ hostvars[groups['qdevice'][0]].ansible_host }}
+  delegate_to: "{{ qdevice_setup_node }}"
+  run_once: true
+  when:
+    - qdevice_cert_issue
+    - qdevice_auto_updatecerts
 ...
