@@ -1,0 +1,20 @@
+---
+- name: "Check cluster quorum status"
+  command: pvecm status
+  delegate_to: "{{ qdevice_setup_node }}"
+  run_once: true
+  register: pvecm_status
+
+- name: Display quorum information
+  debug:
+    msg: "{{ pvecm_status.stdout }}"
+
+- name: "Ensure QDevice is present and alive"
+  assert:
+    that:
+      - "'Qdevice' in pvecm_status.stdout"
+      - "'Quorate' in pvecm_status.stdout"
+    fail_msg: >
+      QDevice does not appear healthy.
+      Check connectivity to port {{ qdevice_port }} on the qdevice host.
+...

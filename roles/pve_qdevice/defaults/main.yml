@@ -1,0 +1,13 @@
+---
+# Abort if cluster size is odd
+qdevice_require_even_cluster: true
+
+# TCP port used by corosync-qnetd
+qdevice_port: 5403
+
+# Which cluster node performs the setup
+qdevice_setup_node: "{{ groups['cluster'][0] }}"
+
+# Whether to allow password-based root SSH temporarily
+qdevice_allow_root_ssh: false
+...

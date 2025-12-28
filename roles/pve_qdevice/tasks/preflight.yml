@@ -1,0 +1,31 @@
+---
+- name: "Ensure exactly one qdevice host exists"
+  assert:
+    that:
+      - groups['qdevice'] | length == 1
+    fail_msg: >
+      Exactly one host must be defined in the 'qdevice' group.
+
+- name: "Ensure at least two cluster nodes exist"
+  assert:
+    that:
+      - groups['cluster'] | length >= 2
+    fail_msg: >
+      At least two Proxmox cluster nodes are required.
+
+- name: "Abort if cluster size is odd"
+  when: qdevice_require_even_cluster
+  assert:
+    that:
+      - (groups['cluster'] | length) is even
+    fail_msg: >
+      Cluster has an odd number of nodes ({{ groups['cluster'] | length }}).
+      QDevice is only useful for even-sized clusters.
+      Set qdevice_require_even_cluster=false to override.
+
+- name: "Display cluster topology"
+  debug:
+    msg: >
+      Cluster nodes: {{ groups['cluster'] | join(', ') }}
+      QDevice host: {{ groups['qdevice'][0] }}
+...

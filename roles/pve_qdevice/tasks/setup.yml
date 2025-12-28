@@ -1,0 +1,18 @@
+---
+- name: "Ensure all cluster nodes are reachable"
+  ping:
+  run_once: true
+
+- name: "Run pvecm qdevice setup"
+  command: >
+    pvecm qdevice setup {{ hostvars[groups['qdevice'][0]].ansible_host }}
+  args:
+    creates: /etc/corosync/qdevice/net.conf
+  delegate_to: "{{ qdevice_setup_node }}"
+  run_once: true
+  register: qdevice_setup
+
+- name: "Show qdevice setup output"
+  debug:
+    var: qdevice_setup.stdout_lines
+...

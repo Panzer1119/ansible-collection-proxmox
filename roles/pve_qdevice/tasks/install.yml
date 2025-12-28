@@ -1,0 +1,17 @@
+---
+- name: "Install corosync-qnetd on qdevice host"
+  apt:
+    name: corosync-qnetd
+    state: present
+    update_cache: true
+  when: inventory_hostname in groups['qdevice']
+  become: true
+
+- name: "Install corosync-qdevice on cluster nodes"
+  apt:
+    name: corosync-qdevice
+    state: present
+    update_cache: true
+  when: inventory_hostname in groups['cluster']
+  become: true
+...
