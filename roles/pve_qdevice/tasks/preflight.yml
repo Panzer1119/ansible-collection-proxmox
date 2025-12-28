@@ -23,6 +23,14 @@
       QDevice is only useful for even-sized clusters.
       Set qdevice_require_even_cluster=false to override.
 
+- name: "Ensure no host is both cluster and qdevice"
+  assert:
+    that:
+      - not (inventory_hostname in groups['cluster']
+        and inventory_hostname in groups['qdevice'])
+    fail_msg: >
+      Host {{ inventory_hostname }} cannot be both a cluster node and a qdevice.
+
 - name: "Display cluster topology"
   debug:
     msg: >
