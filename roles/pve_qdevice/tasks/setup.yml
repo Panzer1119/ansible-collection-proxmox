@@ -1,6 +1,7 @@
 ---
 - name: "Ensure all cluster nodes are reachable"
   ping:
+  delegate_to: "{{ qdevice_setup_node }}"
   run_once: true
 
 - name: "Run pvecm qdevice setup"
