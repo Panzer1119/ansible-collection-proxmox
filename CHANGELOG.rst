@@ -4,6 +4,14 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.8.1
+======
+
+Release Summary
+---------------
+
+Fixed Ansible conditional handling in PVE and PBS web interface patch roles so `skip_version_check` works correctly when passed as a string via extra-vars.
+
 v0.8.0
 ======
 

@@ -1,9 +1,17 @@
 # Panzer1119 Proxmox Collection Release Notes
 
+<a id="v0-8-1"></a>
+## v0\.8\.1
+
+<a id="release-summary"></a>
+### Release Summary
+
+Fixed Ansible conditional handling in PVE and PBS web interface patch roles so <em class="title-reference">skip\_version\_check</em> works correctly when passed as a string via extra\-vars\.
+
 <a id="v0-8-0"></a>
 ## v0\.8\.0
 
-<a id="release-summary"></a>
+<a id="release-summary-1"></a>
 ### Release Summary
 
 Created a role to set up a QDevice in a Proxmox VE cluster\.
@@ -121,7 +129,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-3-0"></a>
 ## v0\.3\.0
 
-<a id="release-summary-1"></a>
+<a id="release-summary-2"></a>
 ### Release Summary
 
 Created a role to set up an Ansible user on Proxmox VE hosts\.
@@ -134,7 +142,7 @@ Created a role to set up an Ansible user on Proxmox VE hosts\.
 <a id="v0-2-0"></a>
 ## v0\.2\.0
 
-<a id="release-summary-2"></a>
+<a id="release-summary-3"></a>
 ### Release Summary
 
 Migrated the role pbs\_web\_interface\_qol\_patch from its own repository to this collection\.
@@ -147,7 +155,7 @@ Migrated the role pbs\_web\_interface\_qol\_patch from its own repository to thi
 <a id="v0-1-0"></a>
 ## v0\.1\.0
 
-<a id="release-summary-3"></a>
+<a id="release-summary-4"></a>
 ### Release Summary
 
 Migrated the role pve\_web\_interface\_qol\_patch from its own repository to this collection\.

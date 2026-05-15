@@ -152,3 +152,11 @@ releases:
           name: pve_qdevice
           namespace: null
     release_date: '2025-12-28'
+  0.8.1:
+    changes:
+      release_summary: Fixed Ansible conditional handling in PVE and PBS web interface
+        patch roles so `skip_version_check` works correctly when passed as a string
+        via extra-vars.
+    fragments:
+      - 0.8.1.yml
+    release_date: '2026-05-15'
