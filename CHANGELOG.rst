@@ -4,6 +4,19 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.8.2
+======
+
+Release Summary
+---------------
+
+Fixed the version check condition in the PVE web interface patch role.
+
+Bugfixes
+--------
+
+- pve_web_interface_qol_patch - Corrected the version check condition so the patch evaluates the Proxmox VE version correctly.
+
 v0.8.1
 ======
 

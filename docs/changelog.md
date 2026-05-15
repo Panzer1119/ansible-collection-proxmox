@@ -1,9 +1,22 @@
 # Panzer1119 Proxmox Collection Release Notes
 
+<a id="v0-8-2"></a>
+## v0\.8\.2
+
+<a id="release-summary"></a>
+### Release Summary
+
+Fixed the version check condition in the PVE web interface patch role\.
+
+<a id="bugfixes"></a>
+### Bugfixes
+
+* pve\_web\_interface\_qol\_patch \- Corrected the version check condition so the patch evaluates the Proxmox VE version correctly\.
+
 <a id="v0-8-1"></a>
 ## v0\.8\.1
 
-<a id="release-summary"></a>
+<a id="release-summary-1"></a>
 ### Release Summary
 
 Fixed Ansible conditional handling in PVE and PBS web interface patch roles so <em class="title-reference">skip\_version\_check</em> works correctly when passed as a string via extra\-vars\.
@@ -11,7 +24,7 @@ Fixed Ansible conditional handling in PVE and PBS web interface patch roles so <
 <a id="v0-8-0"></a>
 ## v0\.8\.0
 
-<a id="release-summary-1"></a>
+<a id="release-summary-2"></a>
 ### Release Summary
 
 Created a role to set up a QDevice in a Proxmox VE cluster\.
@@ -49,7 +62,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-5-2"></a>
 ## v0\.5\.2
 
-<a id="bugfixes"></a>
+<a id="bugfixes-1"></a>
 ### Bugfixes
 
 * pbs\_web\_interface\_qol\_patch \- Fix tasks\.
@@ -57,7 +70,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-5-1"></a>
 ## v0\.5\.1
 
-<a id="bugfixes-1"></a>
+<a id="bugfixes-2"></a>
 ### Bugfixes
 
 * pbs\_web\_interface\_qol\_patch \- Add support for Proxmox Backup Server 3\.4\.
@@ -71,7 +84,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 * pbs\_web\_interface\_qol\_patch \- Add support for Proxmox Backup Server 3\.4\.
 * pve\_web\_interface\_qol\_patch \- Add support for Proxmox VE 8\.4\.
 
-<a id="bugfixes-2"></a>
+<a id="bugfixes-3"></a>
 ### Bugfixes
 
 * pve\_web\_interface\_qol\_patch \- Fix version extraction\.
@@ -79,7 +92,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-4-2"></a>
 ## v0\.4\.2
 
-<a id="bugfixes-3"></a>
+<a id="bugfixes-4"></a>
 ### Bugfixes
 
 * pbs\_web\_interface\_qol\_patch \- Correct typo\.
@@ -87,7 +100,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-4-1"></a>
 ## v0\.4\.1
 
-<a id="bugfixes-4"></a>
+<a id="bugfixes-5"></a>
 ### Bugfixes
 
 * pbs\_web\_interface\_qol\_patch \- Allow version check command to run in check mode\.
@@ -105,7 +118,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-3-3"></a>
 ## v0\.3\.3
 
-<a id="bugfixes-5"></a>
+<a id="bugfixes-6"></a>
 ### Bugfixes
 
 * pve\_set\_up\_ansible\_user \- Switch to mapping the list of allowed lxc ids to commands instead of looping over it\. Because the loop executes the task multiple times\, it would overwrite the sudoers file multiple times\, resulting in only the last entry being present\.
@@ -113,7 +126,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-3-2"></a>
 ## v0\.3\.2
 
-<a id="bugfixes-6"></a>
+<a id="bugfixes-7"></a>
 ### Bugfixes
 
 * pve\_set\_up\_ansible\_user \- Fixed an indentation error in the sudoers configuration task that prevented the looping\.
@@ -121,7 +134,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-3-1"></a>
 ## v0\.3\.1
 
-<a id="bugfixes-7"></a>
+<a id="bugfixes-8"></a>
 ### Bugfixes
 
 * pve\_set\_up\_ansible\_user \- Fixed an issue where the variable <code>ansible\_user</code> was used\, despite it being a reserved Ansible variable\. This has been replaced with <code>proxmox\_user</code> to avoid conflicts\.
@@ -129,7 +142,7 @@ Created a role to set up a QDevice in a Proxmox VE cluster\.
 <a id="v0-3-0"></a>
 ## v0\.3\.0
 
-<a id="release-summary-2"></a>
+<a id="release-summary-3"></a>
 ### Release Summary
 
 Created a role to set up an Ansible user on Proxmox VE hosts\.
@@ -142,7 +155,7 @@ Created a role to set up an Ansible user on Proxmox VE hosts\.
 <a id="v0-2-0"></a>
 ## v0\.2\.0
 
-<a id="release-summary-3"></a>
+<a id="release-summary-4"></a>
 ### Release Summary
 
 Migrated the role pbs\_web\_interface\_qol\_patch from its own repository to this collection\.
@@ -155,7 +168,7 @@ Migrated the role pbs\_web\_interface\_qol\_patch from its own repository to thi
 <a id="v0-1-0"></a>
 ## v0\.1\.0
 
-<a id="release-summary-4"></a>
+<a id="release-summary-5"></a>
 ### Release Summary
 
 Migrated the role pve\_web\_interface\_qol\_patch from its own repository to this collection\.
