@@ -1,0 +1,5 @@
+---
+release_summary: Fixed the version check condition in the PVE web interface patch role.
+bugfixes:
+  - pve_web_interface_qol_patch - Corrected the version check condition so the patch evaluates the Proxmox VE version correctly.
+...
