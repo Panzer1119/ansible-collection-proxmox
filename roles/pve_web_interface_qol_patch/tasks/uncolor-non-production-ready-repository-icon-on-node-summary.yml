@@ -5,7 +5,7 @@
     regexp: 'fmt\(gettext\(''Non production-ready repository enabled!''\), ''exclamation-circle.*?''\);'
     replace: "fmt(gettext('Non production-ready repository enabled!'), 'exclamation-circle');"
     backup: true
-  when: skip_version_check or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
+  when: (skip_version_check | default(false) | bool) or (pve_version is version('8.2', '>=') and pve_version is version('9.0', '<'))
   notify: "Restart PVE Proxy"
 
 - name: "Replace a line in proxmoxlib.js (PVE 9.x)"
@@ -18,6 +18,6 @@
       \2'exclamation-circle',
       \4)
     backup: true
-  when: skip_version_check or (pve_version is version('9.0', '>=') and pve_version is version('10.0', '<'))
+  when: (skip_version_check | default(false) | bool) or (pve_version is version('9.0', '>=') and pve_version is version('10.0', '<'))
   notify: "Restart PVE Proxy"
 ...
