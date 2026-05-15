@@ -1,0 +1,3 @@
+---
+release_summary: Fixed Ansible conditional handling in PVE and PBS web interface patch roles so `skip_version_check` works correctly when passed as a string via extra-vars.
+...
