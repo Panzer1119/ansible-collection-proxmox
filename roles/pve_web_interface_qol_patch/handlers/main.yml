@@ -3,3 +3,9 @@
   service:
     name: "pveproxy"
     state: "restarted"
+
+- name: "Restart PVE Daemon"
+  service:
+    name: "pvedaemon"
+    state: "restarted"
+
