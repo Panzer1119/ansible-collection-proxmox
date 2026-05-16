@@ -4,6 +4,9 @@ Panzer1119 Proxmox Collection Release Notes
 
 .. contents:: Topics
 
+v0.8.4
+======
+
 v0.8.3
 ======
 
