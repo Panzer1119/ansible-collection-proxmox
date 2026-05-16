@@ -11,6 +11,9 @@
       \3
     backup: true
   when: (skip_version_check | default(false) | bool) or (pve_version is version('8.2', '>=') and pve_version is version('10.0', '<'))
+  notify:
+    - "Restart PVE Proxy"
+    - "Restart PVE Daemon"
 
 - name: "Set the PVE Node Status View Height to 340 (PVE 8.x)"
   replace:
@@ -91,5 +94,4 @@
   when: (skip_version_check | default(false) | bool) or (pve_version is version('8.2', '>=') and pve_version is version('10.0', '<'))
   notify:
     - "Restart PVE Proxy"
-    - "Restart PVE Daemon"
 ...
