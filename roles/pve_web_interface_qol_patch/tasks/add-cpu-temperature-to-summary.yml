@@ -6,7 +6,7 @@
     replace: |
       \1
       
-      \t$res->{thermalstate} = `sensors -j`;
+      \t$res->{thermalstate} = `sensors -j 2>/dev/null`;
       
       \3
     backup: true
