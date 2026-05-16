@@ -1,5 +1,8 @@
 # Panzer1119 Proxmox Collection Release Notes
 
+<a id="v0-8-6"></a>
+## v0\.8\.6
+
 <a id="v0-8-5"></a>
 ## v0\.8\.5
 
