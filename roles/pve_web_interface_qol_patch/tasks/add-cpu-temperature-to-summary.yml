@@ -2,7 +2,7 @@
 - name: "Add Thermal State Endpoint to Nodes.pm (PVE 8.x, 9.x)"
   replace:
     path: "/usr/share/perl5/PVE/API2/Nodes.pm"
-    regexp: '(\s+PVE::pvecfg::version_text\(\);)(\n|.)*?\n\n(\s*my \$dinfo = df\(''/'', 1\);     # output is bytes)\n'
+    regexp: '(\s+(?:\S+\s+)?PVE::pvecfg::version_text\(\);)(\n|.)*?\n\n(\s*my \$dinfo = df\(''/'', 1\);     # output is bytes)\n'
     replace: |
       \1
       
